@@ -99,7 +99,7 @@ class EmulatedRMIRegulatedMotor(private val motor: RMIRegulatedMotor): RMIRegula
         TODO("Not yet implemented")
     }
 
-    override fun close() = motor.close()
+    override fun close() {}
 
     override fun forward() {
         TODO("Not yet implemented")
