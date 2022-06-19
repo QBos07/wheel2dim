@@ -51,6 +51,7 @@ class EmulatedRMIRegulatedMotor(private val motor: RMIRegulatedMotor): RMIRegula
     }
 
     override fun rotate(angle: Int, immediateReturn: Boolean) {
+        if (angle == 0) return
         tacho += angle
         when (this) {
             first -> {
