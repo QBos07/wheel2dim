@@ -54,6 +54,7 @@ class EmulatedRMIRegulatedMotor(private val motor: RMIRegulatedMotor): RMIRegula
         tacho += angle
         when (this) {
             first -> {
+                println("first: $angle ($immediateReturn)")
                 motor.rotate(config.turn, true)
                 secondary.motorRotate(if (config.invertTurn) config.turn else -config.turn)
                 motor.waitComplete()
@@ -65,6 +66,7 @@ class EmulatedRMIRegulatedMotor(private val motor: RMIRegulatedMotor): RMIRegula
                 motor.waitComplete()
             }
             secondary -> {
+                println("secondary: $angle ($immediateReturn)")
                 motor.rotate(angle, true)
                 first.motorRotate(angle)
                 motor.waitComplete()
